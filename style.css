@@ -69,4 +69,7 @@ body{
     font-size: 20px;
     font-weight: 700;
 }
+.name{
+    text-transform: uppercase;
+}
 /*-----F.MAIN----------*/

@@ -122,6 +122,6 @@ for(let i = 0; i< icons.length; i++){
 	const iconsHTML = tplIconsHTML.cloneNode(true);
 	const {name, prefix, type, family, color} = icons[i];
 	iconsHTML.querySelector(".icon").innerHTML = `<i class="${icons[i].family} ${icons[i].prefix}${icons[i].name}"><i>`
-
+	iconsHTML.querySelector(".name").innerHTML = name;
 	containerHTML.append(iconsHTML); 
 }
