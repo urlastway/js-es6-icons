@@ -115,10 +115,13 @@ const icons = [
 
 console.log(icons);
 
-//const containerHTML = document.querySelector(".container");
-//const tplIconsHTML = document.querySelector(".tpl__icons").content;
+const containerHTML = document.querySelector("#container");
+const tplIconsHTML = document.querySelector("#tpl-icons").content;
 
-//for(let i = 0; i< icons.length; i++){
-//	const iconsHTML = tplIconsHTML.cloneNode(true);
-//	const {name, prefix, type, family, color}
-//}
+for(let i = 0; i< icons.length; i++){
+	const iconsHTML = tplIconsHTML.cloneNode(true);
+	const {name, prefix, type, family, color} = icons[i];
+	iconsHTML.querySelector(".icon").innerHTML = `<i class="${icons[i].family} ${icons[i].prefix}${icons[i].name}"><i>`
+
+	containerHTML.append(iconsHTML); 
+}
