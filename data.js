@@ -114,3 +114,11 @@ const icons = [
 ];
 
 console.log(icons);
+
+//const containerHTML = document.querySelector(".container");
+//const tplIconsHTML = document.querySelector(".tpl__icons").content;
+
+//for(let i = 0; i< icons.length; i++){
+//	const iconsHTML = tplIconsHTML.cloneNode(true);
+//	const {name, prefix, type, family, color}
+//}
