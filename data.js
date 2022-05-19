@@ -121,25 +121,23 @@ icons.forEach((elm) => {
 const containerHTML = document.querySelector("#container");
 const tplIconsHTML = document.querySelector("#tpl-icons").content;
 
-for(let i = 0; i< icons.length; i++){
-	const iconsHTML = tplIconsHTML.cloneNode(true);
-	const {name, prefix, type, family, color} = icons[i];
-	iconsHTML.querySelector(".icon").innerHTML = `<i class="${icons[i].family} ${icons[i].prefix}${icons[i].name}" style="color:${icons[i].color}"><i>`
-	iconsHTML.querySelector(".name").innerHTML = name;
+function printIcons(icons, container) {
+	for(let i = 0; i< icons.length; i++){
+		const iconsHTML = tplIconsHTML.cloneNode(true);
+		const {name, prefix, type, family, color} = icons[i];
+		iconsHTML.querySelector(".icon").innerHTML = `<i class="${icons[i].family} ${icons[i].prefix}${icons[i].name}" style="color:${icons[i].color}"><i>`
+		iconsHTML.querySelector(".name").innerHTML = name;
 
-	containerHTML.append(iconsHTML); 
-};
+		containerHTML.append(iconsHTML);
+		container.innerHTML = "";
+		container.innerHTML = container.innerHTML + icons[i];
+	};
+}
 
-const purple = icons.filter((elm) => elm.color == "blue");
-console.log(purple); 
-const gialli = icons.filter((elm) => elm.color == "green");
-console.log(gialli); 
-const blu = icons.filter((elm) => elm.color == "orange");
-console.log(blu);
+printIcons(icons, containerHTML);
 
-const user = icons.filter((elm) => elm.name == "user");
-console.log(user);
-const vegetable = icons.filter((elm) => elm.name == "vegetable");
-console.log(vegetable);
-const animal = icons.filter((elm) => elm.name == "animal");
-console.log(animal);
+tplIconsHTML.addEventListener("change", function() {
+    const iconType = this.value;
+    const iconsFiltered = icons.filter(elm => elm.type === iconType || iconType === "");
+    printIcons(iconsFiltered, containerHTML);
+});
